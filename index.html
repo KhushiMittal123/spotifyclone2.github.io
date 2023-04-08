@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify -Your favourite music is here</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Varela+Round&display=swap');
+
+        body {
+            background-color: antiquewhite;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        nav {
+            font-family: 'Ubuntu', sans-serif;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            height: 65px;
+            background-color: black;
+            color: white;
+        }
+
+        nav ul li {
+            padding: 0 12px;
+        }
+
+        .brand img {
+            width: 44px;
+            padding: 0 8px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 1.3rem;
+        }
+
+        .container {
+            min-height: 72vh;
+            background-color: black;
+            color: white;
+            font-family: 'Varela Round', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            margin: 23px auto;
+            border-radius: 12px;
+            padding: 34px;
+            background-image: url('bg.jpg');
+        }
+
+        .bottom {
+            position: sticky;
+            height: 130px;
+            background-color: black;
+            color: white;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        #myProgressBar {
+            width: 80vw;
+            cursor: pointer;
+
+
+        }
+
+        .icons {
+            margin-top: 14px;
+        }
+
+        .icons i {
+            cursor: pointer;
+        }
+
+        .songItem {
+            height: 50px;
+            display: flex;
+            background-color: white;
+            padding: 5%;
+            color: black;
+            margin: 12px 0;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 34px;
+        }
+
+        .songItem img {
+            width: 43px;
+            margin: 0 23px;
+            border-radius: 34px;
+        }
+
+        .timeStamp {
+            margin: 0 auto 23px;
+
+        }
+
+        .timeStamp i {
+            cursor: pointer;
+        }
+
+        .songItemcontainer {
+            margin-top: 74px;
+        }
+
+        .songInfo {
+            position: absolute;
+            left: 10vw;
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .songInfo img {
+            opacity: 0;
+            transition: opacity 0.8s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="logo.png" alt="Spotify">Spotify</li>
+            <li> Home</li>
+            <li>About</li>
+            <li> <button id="visibilitybtn" type="button" class="btn btn-outline-secondary">Hide Play Section</button>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="songList">
+            <h1>Best of Music -Playlist</h1>
+        </div>
+
+        <div class="songItemContainer">
+            <div class="songItem">
+                
+                    <img src="1.jpg" alt="1">
+                    <span> Let me Love You :</span>
+                    <span class="songListPlay"><span class="timeStamp">05:34 <i class="far  fa-play-circle" id="1"
+                                onclick="play(this.id)"></i></span></span>
+                
+            </div>
+            <div class="songItem">
+                <img src="2.jpg" alt="2">
+                <span> Mercy :</span>
+                <span class="songListPlay"><span class="timeStamp">04:26 <i class="far  fa-play-circle" id="2"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="3.jpg" alt="3">
+                <span> Perfect :</span>
+                <span class="songListPlay"><span class="timeStamp">05:12 <i class="far  fa-play-circle" id="3"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="4.jpg" alt="4">
+                <span> August :</span>
+                <span class="songListPlay"><span class="timeStamp">05:22 <i class="far  fa-play-circle" id="4"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="5.jpg" alt="5">
+                <span> Killer Queen :</span>
+                <span class="songListPlay"><span class="timeStamp">03:57 <i class="far  fa-play-circle" id="5"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="6.jpg" alt="6">
+                <span> Bohemian Rhapsody :</span>
+                <span class="songListPlay"><span class="timeStamp">04:07 <i class="far  fa-play-circle" id="6"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="7.jpg" alt="7">
+                <span> What Makes You Beautiful :</span>
+                <span class="songListPlay"><span class="timeStamp">04:46 <i class="far  fa-play-circle" id="7"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="8.jpg" alt="8">
+                <span> Let Me Down Slowly :</span>
+                <span class="songListPlay"><span class="timeStamp">05:34 <i class="far  fa-play-circle" id="8"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="9.jpg" alt="9">
+                <span> Starboy :</span>
+                <span class="songListPlay"><span class="timeStamp">04:39 <i class="far  fa-play-circle" id="9"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+            <div class="songItem">
+                <img src="10.jpg" alt="10">
+                <span> Attention :</span>
+                <span class="songListPlay"><span class="timeStamp">05:24 <i class="far  fa-play-circle" id="10"
+                            onclick="play(this.id)"></i></span></span>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- <div id="visibilitybtn">
+            <button type="button" class="btn btn-outline-secondary">Hide</button>
+        </div> -->
+
+
+
+        <div class="songBanner"> </div>
+    </div>
+    <div class="bottom" id="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        <div class="icons">
+            <!----fontawesome icons-->
+            <i class="fa-solid fa-3x fa-backward-step" id="backwardStep"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fa-solid fa-3x fa-forward-step" id="forwardStep"></i>
+
+        </div>
+        <div class="songInfo" id="songinformation">
+            <img src="playing.gif" width="42px" alt="" id="gif"><span id="songdetails"> Let me Love you -Justin
+                Bieber</span>
+        </div>
+
+
+    </div>
+    <script src="https://kit.fontawesome.com/f54c8b49f4.js" crossorigin="anonymous"></script>
+    <script>
+        console.log("welcome to spotify");
+        //initialize the events 
+        let songIndex = 0;
+        let audioElement = new Audio("1.mp3");
+        let masterPlay = document.getElementById("masterPlay");
+        let myProgressBar = document.getElementById("myProgressBar");
+        let gif = document.getElementById("gif");
+        let songInfo = document.getElementById("songdetails");
+        let backward = document.getElementById("backwardStep");
+        let forward = document.getElementById("forwardStep");
+        let bottoms = document.getElementById("bottom");
+        let indexx = 0;
+        let hidebtn = document.getElementById("visibilitybtn");
+        let visibilitystate = 1;
+
+
+        let songs = [
+            { songName: "Let me Love You-Justin Bieber", filePath: "1.mp3", coverPath: "1.jpg" },
+            { songName: "Mercy-Shawn Mendes", filePath: "2.mp3", coverPath: "2.jpg" },
+            { songName: "Perfect-Ed Sheeran", filePath: "3.mp3", coverPath: "3.jpg" },
+            { songName: "August-Taylor Swift", filePath: "4.mp3", coverPath: "4.jpg" },
+            { songName: "Killer Queen-Queen", filePath: "5.mp3", coverPath: "5.jpg" },
+            { songName: "Bohemian Rhapsody-Queen", filePath: "6.mp3", coverPath: "6.jpg" },
+            { songName: "What Makes You Beautiful-One Direction", filePath: "7.mp3", coverPath: "7.jpg" },
+            { songName: "Let Me Down Slowly-Alec Benjamin", filePath: "8.mp3", coverPath: "8.jpg" },
+            { songName: "Starboy-The Weeknd", filePath: "9.mp3", coverPath: "9.jpg" },
+            { songName: "Attention-Charlie Puth", filePath: "10.mp3", coverPath: "10.jpg" }
+        ]
+
+        //audioElement.play(); 
+
+
+        //**************
+
+        function play(index) {
+            audioElement.pause();
+            indexx = index - 1;
+            audioElement = new Audio(songs[indexx].filePath);
+            let songname = songs[indexx].songName;
+
+            console.log(audioElement);
+            songInfo.innerHTML = `${songname}`;
+            gif.style.opacity = 1;
+            audioElement.play();
+            masterPlay.classList.remove('fa-play-circle');
+            masterPlay.classList.add('fa-pause-circle');
+            gif.style.opacity = 1;
+
+            audioElement.addEventListener('timeupdate', () => {
+                // console.log("timeupdate"); 
+                progress = parseInt((audioElement.currentTime / audioElement.duration) * 100)
+                console.log(progress);
+                myProgressBar.value = progress;
+            })
+            myProgressBar.addEventListener('change', () => {
+                audioElement.currentTime = ((myProgressBar.value * audioElement.duration) / 100);
+
+            })
+
+
+
+        }
+
+
+        //********************
+
+        //listen to events 
+        masterPlay.addEventListener('click', () => {
+            if (audioElement.paused || audioElement.currentTime <= 0) {
+                audioElement.play();
+                masterPlay.classList.remove('fa-play-circle');
+                masterPlay.classList.add('fa-pause-circle');
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement.pause();
+                masterPlay.classList.remove('fa-pause-circle');
+                masterPlay.classList.add('fa-play-circle');
+                gif.style.opacity = 0;
+            }
+        })
+
+
+
+        audioElement.addEventListener('timeupdate', () => {
+            // console.log("timeupdate"); 
+            progress = parseInt((audioElement.currentTime / audioElement.duration) * 100)
+            console.log(progress);
+            myProgressBar.value = progress;
+        })
+        myProgressBar.addEventListener('change', () => {
+            audioElement.currentTime = ((myProgressBar.value * audioElement.duration) / 100);
+
+        })
+
+        backward.addEventListener('click', () => {
+            let bindex = indexx;
+            console.log(indexx);
+            console.log(bindex);
+            play(bindex);
+        })
+
+        forward.addEventListener('click', () => {
+            let findex = indexx + 2;
+            console.log(indexx);
+            console.log(findex);
+            play(findex);
+        })
+
+        hidebtn.addEventListener('click', () => {
+            if (visibilitystate == 1) {
+                visibilitystate = 0;
+                bottoms.style.visibility = "hidden";
+                hidebtn.innerHTML = "Show Play Section";
+            }
+            else {
+                visibilitystate = 1;
+                bottoms.style.visibility = "visible";
+                hidebtn.innerHTML = "Hide Play Section";
+            }
+            //console.log("hide button clicked");
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
